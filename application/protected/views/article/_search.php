@@ -1,70 +1,34 @@
-<?php
-/* @var $this ArticleController */
-/* @var $model Article */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'id',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>80)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'title',array('class'=>'span5','maxlength'=>80)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'keywords'); ?>
-		<?php echo $form->textField($model,'keywords',array('size'=>40,'maxlength'=>40)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'keywords',array('class'=>'span5','maxlength'=>40)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+		<?php echo $form->textAreaRow($model,'description',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'createtime'); ?>
-		<?php echo $form->textField($model,'createtime'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'createtime',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'updatetime'); ?>
-		<?php echo $form->textField($model,'updatetime'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'updatetime',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'status',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+		<?php echo $form->textAreaRow($model,'content',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'user_userid'); ?>
-		<?php echo $form->textField($model,'user_userid'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'user_userid',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'category_catid'); ?>
-		<?php echo $form->textField($model,'category_catid'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'category_catid',array('class'=>'span5')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

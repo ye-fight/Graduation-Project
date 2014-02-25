@@ -1,40 +1,22 @@
-<?php
-/* @var $this CategoryController */
-/* @var $model Category */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'catid'); ?>
-		<?php echo $form->textField($model,'catid'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'catid',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'catname'); ?>
-		<?php echo $form->textField($model,'catname',array('size'=>30,'maxlength'=>30)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'catname',array('class'=>'span5','maxlength'=>30)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+		<?php echo $form->textAreaRow($model,'description',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'items'); ?>
-		<?php echo $form->textField($model,'items'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'items',array('class'=>'span5')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

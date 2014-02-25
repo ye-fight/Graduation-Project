@@ -1,50 +1,26 @@
-<?php
-/* @var $this UserController */
-/* @var $model User */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'userid'); ?>
-		<?php echo $form->textField($model,'userid'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'userid',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'username'); ?>
-		<?php echo $form->textField($model,'username',array('size'=>16,'maxlength'=>16)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>16)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
+			<?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>45)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'lastloginip'); ?>
-		<?php echo $form->textField($model,'lastloginip',array('size'=>15,'maxlength'=>15)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'lastloginip',array('class'=>'span5','maxlength'=>15)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'lastlogintime'); ?>
-		<?php echo $form->textField($model,'lastlogintime'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'lastlogintime',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'realname'); ?>
-		<?php echo $form->textField($model,'realname',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'realname',array('class'=>'span5','maxlength'=>45)); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

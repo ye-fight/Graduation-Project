@@ -1,45 +1,24 @@
-<?php
-/* @var $this AttachmentController */
-/* @var $model Attachment */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'aid'); ?>
-		<?php echo $form->textField($model,'aid'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'aid',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'filename'); ?>
-		<?php echo $form->textField($model,'filename',array('size'=>50,'maxlength'=>50)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'filename',array('class'=>'span5','maxlength'=>50)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'filepath'); ?>
-		<?php echo $form->textField($model,'filepath',array('size'=>60,'maxlength'=>200)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'filepath',array('class'=>'span5','maxlength'=>200)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'filetype'); ?>
-		<?php echo $form->textField($model,'filetype'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'filetype',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'user_userid'); ?>
-		<?php echo $form->textField($model,'user_userid'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'user_userid',array('class'=>'span5')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

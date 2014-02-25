@@ -1,46 +1,24 @@
-<?php
-/* @var $this CategoryController */
-/* @var $model Category */
-/* @var $form CActiveForm */
-?>
-
-<div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'category-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'catname'); ?>
-		<?php echo $form->textField($model,'catname',array('size'=>30,'maxlength'=>30)); ?>
-		<?php echo $form->error($model,'catname'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'catname',array('class'=>'span5','maxlength'=>30)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
+	<?php echo $form->textAreaRow($model,'description',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'items'); ?>
-		<?php echo $form->textField($model,'items'); ?>
-		<?php echo $form->error($model,'items'); ?>
-	</div>
+	<?php echo $form->textFieldRow($model,'items',array('class'=>'span5')); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+<div class="form-actions">
+	<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType'=>'submit',
+			'type'=>'primary',
+			'label'=>$model->isNewRecord ? 'Create' : 'Save',
+		)); ?>
+</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- form -->

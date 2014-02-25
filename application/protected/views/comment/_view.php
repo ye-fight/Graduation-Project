@@ -1,12 +1,7 @@
-<?php
-/* @var $this CommentController */
-/* @var $data Comment */
-?>
-
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('commentid')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->commentid), array('view', 'id'=>$data->commentid)); ?>
+		<b><?php echo CHtml::encode($data->getAttributeLabel('commentid')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->commentid),array('view','id'=>$data->commentid)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author_name')); ?>:</b>
