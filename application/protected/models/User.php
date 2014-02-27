@@ -111,4 +111,9 @@ class User extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function encrypt($passwd)
+	{
+		return md5($passwd);
+	}
 }
