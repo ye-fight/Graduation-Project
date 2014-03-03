@@ -7,12 +7,12 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'糖尿病自我管理专题学习网站',
 
 	// preloading 'log' component
 	'preload'=>array(
 		'log',
-		'bootstrap'
+		//'bootstrap'
 	),
 
 	// autoloading model and component classes

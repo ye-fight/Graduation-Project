@@ -55,6 +55,8 @@ class LoginForm extends CFormModel
 				case UserIdentity::ERROR_NONE:
 					$duration = $this->rememberMe ? 3600*24*30 : 0;
 					Yii::app()->user->login($this->_identity, $duration);
+
+					User::model()->updateByPk($this->_identity->id, array('lastlogintime'=>time()));
 					break;
 				
 				case UserIdentity::ERROR_USERNAME_INVALID:
@@ -65,7 +67,7 @@ class LoginForm extends CFormModel
 					$this->addError('password', '密码不正确');
 					break;
 			}
-			
+
 		}
 	}
 

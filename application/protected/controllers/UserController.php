@@ -8,15 +8,16 @@ class UserController extends Controller
 */
 public $layout='//layouts/column2';
 
-/**
-* @return array action filters
-*/
-public function filters()
-{
-return array(
-'accessControl', // perform access control for CRUD operations
-);
-}
+	/**
+	* @return array action filters
+	*/
+	public function filters()
+	{
+		return array(
+			'postOnly + delete',
+			array('ext.bootstrap.filters.BootstrapFilter') // 前台页面去掉bs2主题 
+		);
+	}
 
 /**
 * Specifies the access control rules.

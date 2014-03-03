@@ -2,6 +2,14 @@
 
 class SiteController extends Controller
 {
+	public function filters()
+	{
+		return array(
+			'accessControl',
+			'postOnly + delete',
+			array('ext.bootstrap.filters.BootstrapFilter')
+		);
+	}
 	/**
 	 * Declares class-based actions.
 	 */

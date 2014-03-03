@@ -9,13 +9,14 @@ class PositionController extends Controller
 	public $layout='//layouts/column2';
 
 	/**
-	 * @return array action filters
-	 */
+	* @return array action filters
+	*/
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			'accessControl',
+			'postOnly + delete',
+			array('ext.bootstrap.filters.BootstrapFilter') // 前台页面去掉bs2主题 - view
 		);
 	}
 

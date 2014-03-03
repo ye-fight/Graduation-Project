@@ -8,15 +8,17 @@ class AttachmentController extends Controller
 */
 public $layout='//layouts/column2';
 
-/**
-* @return array action filters
-*/
-public function filters()
-{
-return array(
-'accessControl', // perform access control for CRUD operations
-);
-}
+	/**
+	* @return array action filters
+	*/
+	public function filters()
+	{
+		return array(
+			'accessControl',
+			'postOnly + delete',
+			array('ext.bootstrap.filters.BootstrapFilter - view')
+		);
+	}
 
 /**
 * Specifies the access control rules.
