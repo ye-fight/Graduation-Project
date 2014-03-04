@@ -6,13 +6,13 @@ $this->breadcrumbs=array(
 );
 
 	$this->menu=array(
-	array('label'=>'List User','url'=>array('index')),
-	array('label'=>'Create User','url'=>array('create')),
-	array('label'=>'View User','url'=>array('view','id'=>$model->userid)),
-	array('label'=>'Manage User','url'=>array('admin')),
+	array('label'=>'用户列表','url'=>array('index')),
+	array('label'=>'新建用户','url'=>array('create')),
+	array('label'=>'查看用户','url'=>array('view','id'=>$model->userid)),
+	array('label'=>'管理用户','url'=>array('admin')),
 	);
 	?>
 
-	<h1>Update User <?php echo $model->userid; ?></h1>
+	<h1>编辑用户 <?php echo $model->userid; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

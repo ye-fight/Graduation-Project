@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List User','url'=>array('index')),
-array('label'=>'Create User','url'=>array('create')),
+array('label'=>'用户列表','url'=>array('index')),
+array('label'=>'新建用户','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,7 +23,7 @@ return false;
 ");
 ?>
 
-<h1>Manage Users</h1>
+<h1>管理用户</h1>
 
 <p>
 	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>

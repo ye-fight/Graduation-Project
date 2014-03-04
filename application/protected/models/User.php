@@ -30,10 +30,10 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password', 'required'),
+			array('username', 'required'),
+			array('password', 'required', 'on'=>'insert'),
 			array('lastlogintime', 'numerical', 'integerOnly'=>true),
 			array('username', 'length', 'max'=>16),
-			array('password', 'length', 'max'=>32),
 			array('email, realname', 'length', 'max'=>45),
 			array('lastloginip', 'length', 'max'=>15),
 			// The following rule is used by search().
@@ -60,13 +60,13 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'userid' => 'Userid',
-			'username' => 'Username',
-			'password' => 'Password',
-			'email' => 'Email',
-			'lastloginip' => 'Lastloginip',
-			'lastlogintime' => 'Lastlogintime',
-			'realname' => 'Realname',
+			'userid' => '用户ID',
+			'username' => '用户名',
+			'password' => '密码',
+			'email' => '邮箱地址',
+			'lastloginip' => '上次登陆IP',
+			'lastlogintime' => '上次登陆时间',
+			'realname' => '真实姓名',
 		);
 	}
 
@@ -112,8 +112,31 @@ class User extends CActiveRecord
 		return parent::model($className);
 	}
 
+	/**
+	 * 密码加密
+	 * @param  string $passwd 
+	 * @return string         
+	 */
 	public function encrypt($passwd)
 	{
 		return md5($passwd);
 	}
+
+	public function beforeSave()
+	{
+		if (!$this->isNewRecord) {
+			$old = self::model()->findByPk($this->userid);
+
+			if ($this->password == '') {
+				$this->password = $old->password;
+			}
+			if ($this->password !== $old->password) {
+				$this->password = $this->encrypt($this->password);
+			}
+		} else {
+			$this->password = $this->encrypt($this->password);
+		}
+		return true;
+	}
+
 }
