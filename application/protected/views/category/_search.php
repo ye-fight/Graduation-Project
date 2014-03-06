@@ -11,6 +11,8 @@
 
 		<?php echo $form->textFieldRow($model,'items',array('class'=>'span5')); ?>
 
+		<?php echo $form->checkboxRow($model, 'is_single') ?>
+
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType' => 'submit',

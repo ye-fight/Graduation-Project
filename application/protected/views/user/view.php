@@ -16,8 +16,8 @@ array('label'=>'管理用户','url'=>array('admin')),
 <h1>查看用户 #<?php echo $model->userid; ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$model,
-'attributes'=>array(
+	'data'=>$model,
+	'attributes'=>array(
 		'userid',
 		'username',
 		'email',

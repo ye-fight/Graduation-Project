@@ -4,8 +4,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Create Category','url'=>array('create')),
-array('label'=>'Manage Category','url'=>array('admin')),
+	array('label'=>'栏目列表','url'=>array('index')),
+	array('label'=>'新建栏目','url'=>array('create')),
+	array('label'=>'管理栏目','url'=>array('admin')),
 );
 ?>
 

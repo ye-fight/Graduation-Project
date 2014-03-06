@@ -5,8 +5,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Category','url'=>array('index')),
-array('label'=>'Create Category','url'=>array('create')),
+	array('label'=>'栏目列表','url'=>array('index')),
+	array('label'=>'新建栏目','url'=>array('create')),
+	array('label'=>'管理栏目','url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,15 +24,15 @@ return false;
 ");
 ?>
 
-<h1>Manage Categories</h1>
+<h1>栏目管理</h1>
 
 <p>
-	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
+	您可以选择输入一个比较运算符 (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
 		&lt;&gt;</b>
-	or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+	or <b>=</b>) 在你的每一个搜索的值的前面来指定应该如何做比较。
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
+<?php echo CHtml::link('高级搜索','#',array('class'=>'search-button btn')); ?>
 <div class="search-form" style="display:none">
 	<?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -39,16 +40,15 @@ return false;
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-'id'=>'category-grid',
-'dataProvider'=>$model->search(),
-'filter'=>$model,
-'columns'=>array(
+	'id'=>'category-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
 		'catid',
 		'catname',
-		'description',
+		/*'description',*/
 		'items',
-array(
-'class'=>'bootstrap.widgets.TbButtonColumn',
-),
-),
+		'is_single',
+		array('class'=>'bootstrap.widgets.TbButtonColumn',),
+	),
 )); ?>

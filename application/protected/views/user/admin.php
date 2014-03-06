@@ -37,23 +37,21 @@ return false;
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-'id'=>'user-grid',
-'dataProvider'=>$model->search(),
-'filter'=>$model,
-'columns'=>array(
-		'userid',
-		'username',
-		'password',
-		'email',
-		'lastloginip',
-		'lastlogintime',
-		/*
-		'realname',
-		*/
-array(
-'class'=>'bootstrap.widgets.TbButtonColumn',
-),
-),
-)); ?>
+<?php
+	$this->widget('bootstrap.widgets.TbGridView',array(
+		'type'=>'bordered',
+		'id'=>'user-grid',
+		'dataProvider'=>$model->search(),
+		'filter'=>$model,
+		'columns'=>array(
+			'userid',
+			'username',
+			/*'password',*/
+			'email',
+			'lastloginip',
+			'lastlogintime',		
+			'realname',
+			array('class'=>'bootstrap.widgets.TbButtonColumn',),
+		),
+	)); 
+?>

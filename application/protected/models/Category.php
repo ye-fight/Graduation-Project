@@ -8,6 +8,7 @@
  * @property string $catname
  * @property string $description
  * @property integer $items
+ * @property integer $is_single
  */
 class Category extends CActiveRecord
 {
@@ -27,12 +28,12 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('items', 'numerical', 'integerOnly'=>true),
+			array('items, is_single', 'numerical', 'integerOnly'=>true),
 			array('catname', 'length', 'max'=>30),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('catid, catname, description, items', 'safe', 'on'=>'search'),
+			array('catid, catname, description, items, is_single', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,10 +54,11 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'catid' => 'Catid',
-			'catname' => 'Catname',
-			'description' => 'Description',
-			'items' => 'Items',
+			'catid' => '栏目ID',
+			'catname' => '栏目名',
+			'description' => '栏目描述',
+			'items' => '文章数',
+			'is_single' => '单页面'
 		);
 	}
 
@@ -82,6 +84,7 @@ class Category extends CActiveRecord
 		$criteria->compare('catname',$this->catname,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('items',$this->items);
+		$criteria->compare('is_single',$this->is_single);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

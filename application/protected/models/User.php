@@ -96,9 +96,17 @@ class User extends CActiveRecord
 		$criteria->compare('lastlogintime',$this->lastlogintime);
 		$criteria->compare('realname',$this->realname,true);
 
-		return new CActiveDataProvider($this, array(
+		$dataProvider = new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+
+		$data = $dataProvider->getData();
+		foreach ($data as $key => $value) {
+			$value->lastlogintime = date('Y-m-d h:i', $value->lastlogintime);
+		}
+		$dataProvider->setData($data);	
+			
+		return $dataProvider;
 	}
 
 	/**
