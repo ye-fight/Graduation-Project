@@ -6,13 +6,13 @@ $this->breadcrumbs=array(
 );
 
 	$this->menu=array(
-	array('label'=>'List Article','url'=>array('index')),
-	array('label'=>'Create Article','url'=>array('create')),
+	array('label'=>'文章列表','url'=>array('index')),
+	array('label'=>'新建文章','url'=>array('create')),
 	array('label'=>'View Article','url'=>array('view','id'=>$model->id)),
-	array('label'=>'Manage Article','url'=>array('admin')),
+	array('label'=>'文章管理','url'=>array('admin')),
 	);
 	?>
 
-	<h1>Update Article <?php echo $model->id; ?></h1>
+	<h1>编辑文章 <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

@@ -62,16 +62,16 @@ class Article extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'title' => 'Title',
-			'keywords' => 'Keywords',
-			'description' => 'Description',
-			'createtime' => 'Createtime',
-			'updatetime' => 'Updatetime',
-			'status' => 'Status',
-			'content' => 'Content',
-			'user_userid' => 'User Userid',
-			'category_catid' => 'Category Catid',
+			'id' => '文章ID',
+			'title' => '标题',
+			'keywords' => '关键字',
+			'description' => '描述',
+			'createtime' => '创建时间',
+			'updatetime' => '更新时间',
+			'status' => '状态',
+			'content' => '内容',
+			'user_userid' => '用户ID',
+			'category_catid' => '栏目ID',
 		);
 	}
 

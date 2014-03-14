@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Article','url'=>array('index')),
-array('label'=>'Create Article','url'=>array('create')),
-array('label'=>'Update Article','url'=>array('update','id'=>$model->id)),
-array('label'=>'Delete Article','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Article','url'=>array('admin')),
+array('label'=>'文章列表','url'=>array('index')),
+array('label'=>'新建文章','url'=>array('create')),
+array('label'=>'编辑文章','url'=>array('update','id'=>$model->id)),
+array('label'=>'删除文章','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+array('label'=>'文章管理','url'=>array('admin')),
 );
 ?>
 

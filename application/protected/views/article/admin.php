@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Article','url'=>array('index')),
-array('label'=>'Create Article','url'=>array('create')),
+array('label'=>'文章列表','url'=>array('index')),
+array('label'=>'新建文章','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,15 +23,15 @@ return false;
 ");
 ?>
 
-<h1>Manage Articles</h1>
+<h1>文章管理</h1>
 
 <p>
-	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
+	您可以选择输入一个比较运算符 (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
 		&lt;&gt;</b>
-	or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+	or <b>=</b>) 在你的每一个搜索的值的前面来指定应该如何做比较。
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
+<?php echo CHtml::link('高级搜索','#',array('class'=>'search-button btn')); ?>
 <div class="search-form" style="display:none">
 	<?php $this->renderPartial('_search',array(
 	'model'=>$model,

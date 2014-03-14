@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List Article','url'=>array('index')),
-array('label'=>'Manage Article','url'=>array('admin')),
+array('label'=>'文章列表','url'=>array('index')),
+array('label'=>'文章管理','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Article</h1>
+<h1>新建文章</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

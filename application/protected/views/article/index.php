@@ -4,8 +4,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'Create Article','url'=>array('create')),
-array('label'=>'Manage Article','url'=>array('admin')),
+array('label'=>'新建文章','url'=>array('create')),
+array('label'=>'文章管理','url'=>array('admin')),
 );
 ?>
 
