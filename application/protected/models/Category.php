@@ -101,4 +101,18 @@ class Category extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getCategory($all = FALSE)
+	{
+		if ($all) {
+			$model = $this->findAll();
+		} else {
+			$model = $this->findAll('is_single=:is_single', array(':is_single'=>0));
+		}
+		
+
+		$data = CHtml::listData($model, 'catid', 'catname');
+
+		return $data;
+	}
 }

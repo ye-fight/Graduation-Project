@@ -33,7 +33,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, user_userid, category_catid', 'required'),
+			array('title, user_userid, category_catid, content', 'required'),
 			array('createtime, updatetime, status, user_userid, category_catid', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>80),
 			array('keywords', 'length', 'max'=>40),
@@ -68,10 +68,10 @@ class Article extends CActiveRecord
 			'description' => '描述',
 			'createtime' => '创建时间',
 			'updatetime' => '更新时间',
-			'status' => '状态',
+			'status' => '是否显示',
 			'content' => '内容',
-			'user_userid' => '用户ID',
-			'category_catid' => '栏目ID',
+			'user_userid' => '用户',
+			'category_catid' => '栏目',
 		);
 	}
 
@@ -118,5 +118,15 @@ class Article extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function beforeSave()
+	{
+		if ($this->isNewRecord || !$this->createtime) {
+			$this->createtime = $this->updatetime = time();
+		} else {
+			$this->updatetime = time();
+		}
+		return TRUE;
 	}
 }

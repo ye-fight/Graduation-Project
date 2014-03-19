@@ -13,20 +13,18 @@ array('label'=>'文章管理','url'=>array('admin')),
 );
 ?>
 
-<h1>View Article #<?php echo $model->id; ?></h1>
+<h1>查看文章 #<?php echo $model->id; ?></h1>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
-'data'=>$model,
-'attributes'=>array(
-		'id',
-		'title',
-		'keywords',
-		'description',
-		'createtime',
-		'updatetime',
-		'status',
-		'content',
-		'user_userid',
-		'category_catid',
-),
-)); ?>
+<table class="detail-view table table-striped table-condensed" id="yw0">
+	<tbody>
+		<tr class="odd"><th>文章ID</th><td><?php echo $model->id ?></td></tr>
+		<tr class="even"><th>标题</th><td><?php echo $model->title ?></td></tr>
+		<tr class="odd"><th>关键字</th><td><?php echo $model->keywords ?></td></tr>
+		<tr class="even"><th>描述</th><td><?php echo $model->description ?></td></tr>
+		<tr class="odd"><th>创建时间</th><td><?php echo date('Y-m-d', $model->createtime) ?></td></tr>
+		<tr class="even"><th>更新时间</th><td><?php echo date('Y-m-d', $model->updatetime) ?></td></tr>
+		<tr class="odd"><th>是否显示</th><td><?php echo $model->status ? '是':'否' ?></td></tr>
+		<tr class="even"><th>内容</th><td><?php echo $model->content ?></td></tr>
+		<tr class="odd"><th>用户</th><td><?php echo $model->user_userid ?></td></tr>
+		<tr class="even"><th>栏目</th><td><?php echo $model->category_catid ?></td></tr>
+</tbody></table>

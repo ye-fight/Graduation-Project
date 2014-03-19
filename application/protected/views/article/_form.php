@@ -13,8 +13,11 @@
 
 	<?php echo $form->textAreaRow($model,'description',array('rows'=>6, 'cols'=>50, 'class'=>'span8')); ?>
 
-	<?php echo $form->textFieldRow($model,'status',array('class'=>'span5')); ?>
+	<?php echo $form->dropDownListRow($model, 'category_catid', Category::model()->getCategory()); ?>
 
+	<?php echo $form->checkboxRow($model, 'status') ?>
+	
+	<?php echo $form->labelEx($model,'content'); ?>
 	<?php $this->widget('application.extensions.tinymce.ETinyMce', array(
 		'model' => $model,
 		'attribute' => 'content',
@@ -33,6 +36,8 @@
 			15=15pt,16=16pt,17=17pt,18=18pt,19=19pt,20=20pt",
 		)
 	)); ?>
+	<?php echo $form->error($model,'content'); ?>
+
 
 <div class="form-actions">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(

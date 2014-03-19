@@ -45,15 +45,15 @@ return false;
 'columns'=>array(
 		'id',
 		'title',
-		'keywords',
-		'description',
 		'createtime',
 		'updatetime',
+		'category_catid',
 		/*
+		'description',
 		'status',
 		'content',
 		'user_userid',
-		'category_catid',
+		
 		*/
 array(
 'class'=>'bootstrap.widgets.TbButtonColumn',
