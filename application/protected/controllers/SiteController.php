@@ -2,12 +2,14 @@
 
 class SiteController extends Controller
 {
+	public $layout='//layouts/site_main';
+
 	public function filters()
 	{
 		return array(
 			'accessControl',
 			'postOnly + delete',
-			array('ext.bootstrap.filters.BootstrapFilter')
+			
 		);
 	}
 	/**
@@ -38,6 +40,13 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
+	}
+
+	public function actionAbout()
+	{
+		$data = Category::model()->findByPk(6);
+
+		$this->render('about', $data);
 	}
 
 	/**

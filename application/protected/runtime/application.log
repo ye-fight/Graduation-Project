@@ -915,3 +915,24 @@ REQUEST_URI=/index.php?r=article/view&id=1
 in /home/ye/dev/Graduation-Project/application/protected/views/article/view.php (43)
 in /home/ye/dev/Graduation-Project/application/protected/controllers/ArticleController.php (57)
 in /home/ye/dev/Graduation-Project/application/index.php (13)
+2014/03/20 23:17:25 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "about".' in /home/ye/dev/Graduation-Project/framework/web/CController.php:878
+Stack trace:
+#0 /home/ye/dev/Graduation-Project/framework/web/CController.php(782): CController->renderPartial('about', NULL, true)
+#1 /home/ye/dev/Graduation-Project/application/protected/controllers/SiteController.php(47): CController->render('about')
+#2 /home/ye/dev/Graduation-Project/framework/web/actions/CInlineAction.php(49): SiteController->actionAbout()
+#3 /home/ye/dev/Graduation-Project/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#4 /home/ye/dev/Graduation-Project/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 /home/ye/dev/Graduation-Project/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /home/ye/dev/Graduation-Project/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 /home/ye/dev/Graduation-Project/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 /home/ye/dev/Graduation-Project/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 /home/ye/dev/Graduation-Project/framework/web/CController.php(291): CFilterChain->run()
+#10 /home/ye/dev/Graduation-Project/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /home/ye/dev/Graduation-Project/framework/web/CWebApplication.php(282): CController->run('about')
+#12 /home/ye/dev/Graduation-Project/framework/web/CWebApplication.php(141): CWebApplication->runController('site/about')
+#13 /home/ye/dev/Graduation-Project/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#14 /home/ye/dev/Graduation-Project/application/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=site/about
+HTTP_REFERER=http://graduate.dev/index.php?r=site/index
+---
