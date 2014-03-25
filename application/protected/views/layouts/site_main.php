@@ -34,6 +34,8 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><?php echo CHtml::link('关于本站', array('site/about')) ?></li>
+            <li><?php echo CHtml::link('推荐资源', array('article/index', 'catid'=>3)) ?></li>
+            <li><?php echo CHtml::link('血糖知识', array('article/index', 'catid'=>4)) ?></li>
             <li><a href="services.html">服务</a></li>
             <li><a href="contact.php">联系我们</a></li>
             <li class="dropdown">

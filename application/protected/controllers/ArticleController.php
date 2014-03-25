@@ -16,7 +16,7 @@ class ArticleController extends Controller
 		return array(
 			'accessControl',
 			'postOnly + delete',
-			array('ext.bootstrap.filters.BootstrapFilter') // 前台页面去掉bs2主题 
+			array('ext.bootstrap.filters.BootstrapFilter - index view') // 前台页面去掉bs2主题 
 		);
 	}
 
@@ -46,16 +46,35 @@ class ArticleController extends Controller
 		);
 	}
 
-/**
-* Displays a particular model.
-* @param integer $id the ID of the model to be displayed
-*/
-public function actionView($id)
-{
-$this->render('view',array(
-'model'=>$this->loadModel($id),
-));
-}
+	/**
+	* Displays a particular model.
+	* @param integer $id the ID of the model to be displayed
+	*/
+	public function actionView($id)
+	{
+		if (isset($_POST) && !empty($_POST)) {
+			$comment = new Comment;
+			$comment->author_name = $_POST['guestname'];
+			$comment->author_email = $_POST['guestemail'];
+			$comment->author_ip = $_SERVER['REMOTE_ADDR'];
+			$comment->comment_content = $_POST['comment'];
+			$comment->article_id = $id;
+			$comment->createtime = time();
+			$comment->save();
+		}
+
+		$model = $this->loadModel($id);
+		$cat = $model->category;
+
+		$this->layout = '//layouts/site_main';
+		$this->render('view',array(
+			'model' => $model,
+			'cat' => $cat
+		));
+
+		$model->hits += 1;
+		$model->save();
+	}
 
 	/**
 	* Creates a new model.
@@ -128,44 +147,68 @@ else
 throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 }
 
-/**
-* Lists all models.
-*/
-public function actionIndex()
-{
-$dataProvider=new CActiveDataProvider('Article');
-$this->render('index',array(
-'dataProvider'=>$dataProvider,
-));
-}
+	/**
+	* Lists all models.
+	*/
+	public function actionIndex($catid = 0)
+	{
+		$catid = (int) $catid;
 
-/**
-* Manages all models.
-*/
-public function actionAdmin()
-{
-$model=new Article('search');
-$model->unsetAttributes();  // clear any default values
-if(isset($_GET['Article']))
-$model->attributes=$_GET['Article'];
+		$criteria = new CDbCriteria;
+		array('order'=>'updatetime DESC');
+		if ($catid) {
+			$criteria->condition = 'category_catid = :category_catid';
+			$criteria->params = array(':category_catid' => $catid);
 
-$this->render('admin',array(
-'model'=>$model,
-));
-}
+			$cat = Category::model()->find('catid = :catid', array(':catid'=>$catid));
+			$catname = $cat->catname;
+		} else {
+			$catname = '所有栏目';
+		}
 
-/**
-* Returns the data model based on the primary key given in the GET variable.
-* If the data model is not found, an HTTP exception will be raised.
-* @param integer the ID of the model to be loaded
-*/
-public function loadModel($id)
-{
-$model=Article::model()->findByPk($id);
-if($model===null)
-throw new CHttpException(404,'The requested page does not exist.');
-return $model;
-}
+		$count = Article::model()->count($criteria);
+		$pages = new CPagination($count);
+
+		$pages->pagesize = Page::SIZE;
+		$pages->applyLimit($criteria);
+		$data = Article::model()->findAll($criteria);
+
+		$this->layout = '//layouts/site_main';
+
+		$this->render('index',array(
+			'data' => $data,
+			'pages' => $pages,
+			'catname' => $catname,
+		));
+	}
+
+	/**
+	* Manages all models.
+	*/
+	public function actionAdmin()
+	{
+		$model=new Article('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Article']))
+			$model->attributes=$_GET['Article'];
+
+			$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
+	/**
+	* Returns the data model based on the primary key given in the GET variable.
+	* If the data model is not found, an HTTP exception will be raised.
+	* @param integer the ID of the model to be loaded
+	*/
+	public function loadModel($id)
+	{
+		$model = Article::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
 
 /**
 * Performs the AJAX validation.
