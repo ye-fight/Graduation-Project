@@ -123,6 +123,7 @@ class ArticleController extends Controller
 		$criteria = new CDbCriteria;
 		$criteria->condition = 'article_id = :article_id';
 		$criteria->params = array(':article_id' => $id);
+		$criteria->order = 'createtime DESC';
 
 		$count = Comment::model()->count($criteria);
 		$pages = new CPagination($count);

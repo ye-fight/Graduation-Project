@@ -26,10 +26,10 @@
                 <a class="brand" href="#">后台管理</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="active"><a href="<?php echo Yii::app()->createUrl('admin/index') ?>">我的面板</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('category/index') ?>">栏目管理</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('article/index') ?>">文章管理</a></li>
-                        <li><a href="<?php echo Yii::app()->createUrl('user/index') ?>">用户管理</a></li>
+                        <li class="active"><a href="<?php echo Yii::app()->createUrl('admin/admin') ?>">我的面板</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('category/admin') ?>">栏目管理</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('article/admin') ?>">文章管理</a></li>
+                        <li><a href="<?php echo Yii::app()->createUrl('user/admin') ?>">用户管理</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                             <ul class="dropdown-menu">

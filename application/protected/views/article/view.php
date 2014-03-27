@@ -74,7 +74,7 @@ $this->breadcrumbs=array(
           
           <hr>
           <?php foreach ($comments as $key => $value) { ?>
-          <h3><?php echo $value->author_name ?> <small><?php echo date('Y年m月d日', $value->createtime) ?></small></h3>
+          <h3><?php echo $value->author_name ?> <small class="pull-right"><?php echo date('Y-m-d H:s', $value->createtime) ?></small></h3>
           <p><?php echo $value->comment_content ?></p>
           <?php } ?>
           <?php $this->widget('CLinkPager', Page::go($pages)) ?>

@@ -37,6 +37,8 @@
       <?php 
           if (!empty($value->description)) {
             echo '<p>', $value->description, '</p>';
+          } else {
+            echo mb_substr(strip_tags($value->content), 0, 210, 'utf-8');
           }
       ?>
       <?php echo CHtml::link(
@@ -49,33 +51,33 @@
       <?php $this->widget('CLinkPager', Page::go($pages)); } ?>
     </div>
 
-        <div class="col-lg-4">
-          <div class="well">
-            <h4>站内搜索</h4>
-            <form action="" method="get">
-              <div class="input-group">
-                <input type="hidden" name="r" value="article">
-                <input type="text" class="form-control" name="keyword">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="icon-search"></i></button>
-                </span>                
-              </div><!-- /input-group -->
-            </form>
-          </div><!-- /well -->
-          <div class="well">
-            <h4>热门文章</h4>
-            <div class="row">
-              <ul class="list-unstyled col-lg-12">
-                <?php foreach ($hots as $key => $value) {
-                  printf('<li><a href="%s">%s</a></li>',
-                    $this->createUrl('article/view', array('id'=>$value->id)),
-                    $value->title
-                  );
-                } ?>
-              </ul>
-            </div>
-          </div><!-- /well -->
+    <div class="col-lg-4">
+      <div class="well">
+        <h4>站内搜索</h4>
+        <form action="" method="get">
+          <div class="input-group">
+            <input type="hidden" name="r" value="article">
+            <input type="text" class="form-control" name="keyword">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="icon-search"></i></button>
+            </span>                
+          </div><!-- /input-group -->
+        </form>
+      </div><!-- /well -->
+      <div class="well">
+        <h4>热门文章</h4>
+        <div class="row">
+          <ul class="list-unstyled col-lg-12">
+            <?php foreach ($hots as $key => $value) {
+              printf('<li><a href="%s">%s</a></li>',
+                $this->createUrl('article/view', array('id'=>$value->id)),
+                $value->title
+              );
+            } ?>
+          </ul>
         </div>
-      </div>
-
+      </div><!-- /well -->
     </div>
+  </div>
+
+</div>
