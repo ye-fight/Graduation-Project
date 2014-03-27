@@ -47,6 +47,59 @@ class ArticleController extends Controller
 	}
 
 	/**
+	* Lists all models.
+	*/
+	public function actionIndex($catid = 0, $keyword = '')
+	{
+		$catid = (int) $catid;
+
+		$criteria = new CDbCriteria;
+		array('order'=>'updatetime DESC');
+
+		if ($keyword) {
+			$criteria->addSearchCondition('title', $keyword);
+			$catname = '站内搜索 —— ' . $keyword;
+		} 
+
+		if ($catid) {
+			$criteria->condition = 'category_catid = :category_catid';
+			$criteria->params = array(':category_catid' => $catid);
+
+			$cat = Category::model()->find('catid = :catid', array(':catid'=>$catid));
+			
+			if (!isset($catname)) {
+				$catname = $cat->catname;
+			}
+		} else {
+			if (!isset($catname)) {
+				$catname = '所有栏目';
+			}
+		}	
+		
+
+
+		$count = Article::model()->count($criteria);
+		$pages = new CPagination($count);
+
+		$pages->pagesize = Page::SIZE;
+		$pages->applyLimit($criteria);
+		$data = Article::model()->findAll($criteria);
+
+		// recent hots
+		$hots = Article::hots(5);
+
+
+		$this->layout = '//layouts/site_main';
+
+		$this->render('index',array(
+			'data' => $data,
+			'pages' => $pages,
+			'catname' => $catname,
+			'hots' => $hots
+		));
+	}
+
+	/**
 	* Displays a particular model.
 	* @param integer $id the ID of the model to be displayed
 	*/
@@ -66,10 +119,28 @@ class ArticleController extends Controller
 		$model = $this->loadModel($id);
 		$cat = $model->category;
 
+		// comment
+		$criteria = new CDbCriteria;
+		$criteria->condition = 'article_id = :article_id';
+		$criteria->params = array(':article_id' => $id);
+
+		$count = Comment::model()->count($criteria);
+		$pages = new CPagination($count);
+
+		$pages->pagesize = Page::SIZE;
+		$pages->applyLimit($criteria);
+		$comments = Comment::model()->findAll($criteria);
+
+		// recent hots
+		$hots = Article::hots(5);
+
 		$this->layout = '//layouts/site_main';
 		$this->render('view',array(
 			'model' => $model,
-			'cat' => $cat
+			'cat' => $cat,
+			'comments' => $comments,
+			'pages' => $pages,
+			'hots' => $hots
 		));
 
 		$model->hits += 1;
@@ -148,41 +219,6 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 }
 
 	/**
-	* Lists all models.
-	*/
-	public function actionIndex($catid = 0)
-	{
-		$catid = (int) $catid;
-
-		$criteria = new CDbCriteria;
-		array('order'=>'updatetime DESC');
-		if ($catid) {
-			$criteria->condition = 'category_catid = :category_catid';
-			$criteria->params = array(':category_catid' => $catid);
-
-			$cat = Category::model()->find('catid = :catid', array(':catid'=>$catid));
-			$catname = $cat->catname;
-		} else {
-			$catname = '所有栏目';
-		}
-
-		$count = Article::model()->count($criteria);
-		$pages = new CPagination($count);
-
-		$pages->pagesize = Page::SIZE;
-		$pages->applyLimit($criteria);
-		$data = Article::model()->findAll($criteria);
-
-		$this->layout = '//layouts/site_main';
-
-		$this->render('index',array(
-			'data' => $data,
-			'pages' => $pages,
-			'catname' => $catname,
-		));
-	}
-
-	/**
 	* Manages all models.
 	*/
 	public function actionAdmin()
@@ -210,16 +246,16 @@ throw new CHttpException(400,'Invalid request. Please do not repeat this request
 		return $model;
 	}
 
-/**
-* Performs the AJAX validation.
-* @param CModel the model to be validated
-*/
-protected function performAjaxValidation($model)
-{
-if(isset($_POST['ajax']) && $_POST['ajax']==='article-form')
-{
-echo CActiveForm::validate($model);
-Yii::app()->end();
-}
-}
+	/**
+	* Performs the AJAX validation.
+	* @param CModel the model to be validated
+	*/
+	protected function performAjaxValidation($model)
+	{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='article-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+	}
 }

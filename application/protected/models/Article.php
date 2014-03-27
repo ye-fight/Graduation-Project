@@ -54,6 +54,7 @@ class Article extends CActiveRecord
 		return array(
 			'author' => array(self::BELONGS_TO, 'User', 'user_userid'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_catid'),
+			'comment' => array(self::HAS_MANY, 'Comment', 'article_id'),
 		);
 	}
 
@@ -73,6 +74,7 @@ class Article extends CActiveRecord
 			'content' => '内容',
 			'user_userid' => '用户',
 			'category_catid' => '栏目',
+			'thumb' => '图片'
 		);
 	}
 
@@ -129,5 +131,14 @@ class Article extends CActiveRecord
 			$this->updatetime = time();
 		}
 		return TRUE;
+	}
+
+	static public function hots($limit = 3)
+	{
+		return self::model()->findAll(array(
+			'select' => 'title, id',
+			'order' => 'hits DESC',
+			'limit' => $limit
+		));
 	}
 }

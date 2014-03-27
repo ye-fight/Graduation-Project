@@ -14,70 +14,66 @@
 
 	</div>
 	<div class="row">
-        <div class="col-lg-8">
-		    <?php foreach ($data as $key => $value) { ?>
-				<h1><?php echo CHtml::link(
-					$value->title, 
-					array('article/view', 'id'=>$value->id), 
-					array('target'=>'_blank')
-				 ) ?></h1>
-				<p class="lead">by <a href="#">Start Bootstrap</a></p>
-				<hr>
-				<p><i class="icon-time"></i> <?php echo date('Y年m月d日', $value->updatetime) ?></p>
-				<hr>
-				<a href="blog-post.html"><img src="http://placehold.it/900x300" class="img-responsive"></a>
-				<hr>
-                <?php 
-                    if (!empty($this->description)) {
-                        echo '<p>', $this->description, '</p>';
-                    }
-                ?>
-                <?php echo CHtml::link(
-                    '阅读更多 <i class="icon-angle-right"></i>', 
-                    array('article/view', 'id'=>$value->id), 
-                    array('class'=> 'btn btn-primary')
-                ) ?>
-				<hr>			
-			<?php } ?>
-
-            <?php $this->widget('CLinkPager', Page::go($pages)) ?>
-
-        </div>
+    <div class="col-lg-8">
+	    <?php 
+        if (empty($data)) {
+          echo '<p>无搜索结果</p>';
+        } else {
+          foreach ($data as $key => $value) { 
+      ?>
+			<h1><?php echo CHtml::link(
+				$value->title, 
+				array('article/view', 'id'=>$value->id)
+			 ) ?></h1>
+			<p>来源于 <?php echo $value->from ? $value->from : '本站' ?></p>
+			<hr>
+			<p><i class="icon-time"></i> <?php echo date('Y年m月d日', $value->updatetime) ?></p>
+			<hr>
+      <?php if (!empty($value->thumb)) {
+        printf('<a href="%s"><img src="%s" class="img-responsive"></a><hr>',
+          $this->createUrl('article/view', array('id'=>$value->id)),
+          $value->thumb);
+      } ?>
+      <?php 
+          if (!empty($value->description)) {
+            echo '<p>', $value->description, '</p>';
+          }
+      ?>
+      <?php echo CHtml::link(
+          '阅读更多 <i class="icon-angle-right"></i>', 
+          array('article/view', 'id'=>$value->id), 
+          array('class'=> 'btn btn-primary')
+      ) ?>
+			<hr>			
+	    <?php } ?>
+      <?php $this->widget('CLinkPager', Page::go($pages)); } ?>
+    </div>
 
         <div class="col-lg-4">
           <div class="well">
-            <h4>Blog Search</h4>
-            <div class="input-group">
-              <input type="text" class="form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="icon-search"></i></button>
-              </span>
-            </div><!-- /input-group -->
+            <h4>站内搜索</h4>
+            <form action="" method="get">
+              <div class="input-group">
+                <input type="hidden" name="r" value="article">
+                <input type="text" class="form-control" name="keyword">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="icon-search"></i></button>
+                </span>                
+              </div><!-- /input-group -->
+            </form>
           </div><!-- /well -->
           <div class="well">
-            <h4>Popular Blog Categories</h4>
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled">
-                    <li><a href="#dinosaurs">Dinosaurs</a></li>
-                    <li><a href="#spaceships">Spaceships</a></li>
-                    <li><a href="#fried-foods">Fried Foods</a></li>
-                    <li><a href="#wild-animals">Wild Animals</a></li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled">
-                    <li><a href="#alien-abductions">Alien Abductions</a></li>
-                    <li><a href="#business-casual">Business Casual</a></li>
-                    <li><a href="#robots">Robots</a></li>
-                    <li><a href="#fireworks">Fireworks</a></li>
-                  </ul>
-                </div>
-              </div>
-          </div><!-- /well -->
-          <div class="well">
-            <h4>Side Widget Well</h4>
-            <p>Bootstrap's default well's work great for side widgets! What is a widget anyways...?</p>
+            <h4>热门文章</h4>
+            <div class="row">
+              <ul class="list-unstyled col-lg-12">
+                <?php foreach ($hots as $key => $value) {
+                  printf('<li><a href="%s">%s</a></li>',
+                    $this->createUrl('article/view', array('id'=>$value->id)),
+                    $value->title
+                  );
+                } ?>
+              </ul>
+            </div>
           </div><!-- /well -->
         </div>
       </div>

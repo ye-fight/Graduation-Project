@@ -36,28 +36,11 @@
             <li><?php echo CHtml::link('关于本站', array('site/about')) ?></li>
             <li><?php echo CHtml::link('推荐资源', array('article/index', 'catid'=>3)) ?></li>
             <li><?php echo CHtml::link('血糖知识', array('article/index', 'catid'=>4)) ?></li>
-            <li><a href="services.html">服务</a></li>
-            <li><a href="contact.php">联系我们</a></li>
+            <li><?php echo CHtml::link('化验解读', array('site/analyse')) ?></li>
+            <li><?php echo CHtml::link('自我评测', array('site/selfTest')) ?></li>
+            <li><?php echo CHtml::link('医生答疑', array('site/question')) ?></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
-                <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
-                <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
-                <li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
-                <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">博客 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="blog-home-1.html">Blog Home 1</a></li>
-                <li><a href="blog-home-2.html">Blog Home 2</a></li>
-                <li><a href="blog-post.html">Blog Post</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他页面 <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他栏目 <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="full-width.html">Full Width Page</a></li>
                 <li><a href="sidebar.html">Sidebar Page</a></li>
