@@ -32,8 +32,7 @@ class SiteController extends Controller
 	}
 
 	/**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
+	 * 首页
 	 */
 	public function actionIndex()
 	{
@@ -42,6 +41,19 @@ class SiteController extends Controller
 		$this->render('index');
 	}
 
+	public function actionAnalyse()
+	{
+		$this->render('analyse');
+	}
+
+	public function actionSelfTest()
+	{
+		# code...
+	}
+
+	/**
+	 * 关于我们
+	 */
 	public function actionAbout()
 	{
 		$data = Category::model()->findByPk(6);
