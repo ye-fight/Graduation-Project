@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <title><?php echo $this->pageTitle, ' - ', Yii::app()->name; ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" rel="stylesheet">
@@ -38,7 +38,7 @@
             <li><?php echo CHtml::link('血糖知识', array('article/index', 'catid'=>4)) ?></li>
             <li><?php echo CHtml::link('化验解读', array('site/analyse')) ?></li>
             <li><?php echo CHtml::link('自我评测', array('site/selfTest')) ?></li>
-            <li><?php echo CHtml::link('医生答疑', array('site/question')) ?></li>
+            <li><?php echo CHtml::link('医生答疑', array('question/index')) ?></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">其他栏目 <b class="caret"></b></a>
               <ul class="dropdown-menu">

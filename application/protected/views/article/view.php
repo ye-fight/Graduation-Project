@@ -10,8 +10,8 @@ $this->breadcrumbs=array(
     <div class="row">
       
         <div class="col-lg-12">
-            <h1 class="page-header"><?php echo $model->title ?></h1>
-      <ol class="breadcrumb">
+          <h1 class="page-header"><?php echo $model->title ?></h1>
+          <ol class="breadcrumb">
           <li><?php echo CHtml::link('首页', '/') ?></li>
           <li><?php echo CHtml::link($cat->catname, array(
             'article/index', 
@@ -89,7 +89,7 @@ $this->breadcrumbs=array(
                 <input type="hidden" name="r" value="article">
                 <input type="text" class="form-control" name="keyword">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="icon-search"></i></button>
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                 </span>                
               </div><!-- /input-group -->
             </form>

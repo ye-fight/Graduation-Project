@@ -21,10 +21,10 @@
         } else {
           foreach ($data as $key => $value) { 
       ?>
-			<h1><?php echo CHtml::link(
+			<h2><?php echo CHtml::link(
 				$value->title, 
 				array('article/view', 'id'=>$value->id)
-			 ) ?></h1>
+			 ) ?></h2>
 			<p>来源于 <?php echo $value->from ? $value->from : '本站' ?></p>
 			<hr>
 			<p><i class="icon-time"></i> <?php echo date('Y年m月d日', $value->updatetime) ?></p>
@@ -59,7 +59,7 @@
             <input type="hidden" name="r" value="article">
             <input type="text" class="form-control" name="keyword">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="icon-search"></i></button>
+              <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
             </span>                
           </div><!-- /input-group -->
         </form>
