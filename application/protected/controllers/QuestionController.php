@@ -3,10 +3,10 @@
 class QuestionController extends Controller
 {
 	/**
-	* @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	* using two-column layout. See 'protected/views/layouts/column2.php'.
+	* @var string the default layout for the views. Defaults to '//layouts/sb_admin', meaning
+	* using two-column layout. See 'protected/views/layouts/sb_admin.php'.
 	*/
-	public $layout='//layouts/column2';
+	public $layout='//layouts/sb_admin';
 
 	/**
 	* @return array action filters

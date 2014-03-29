@@ -1,5 +1,5 @@
 <?php /* @var $this Controller */ ?>
-<?php $this->beginContent('//layouts/admin_main'); ?>
+<?php $this->beginContent('//layouts/sb_admin'); ?>
 <div class="row">
 
 	<div class="span3">
