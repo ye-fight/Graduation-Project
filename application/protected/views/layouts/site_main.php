@@ -9,11 +9,9 @@
     <title><?php echo $this->pageTitle, ' - ', Yii::app()->name; ?></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Add custom CSS here -->
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/modern-business.css" rel="stylesheet">
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <?php Yii::app()->getClientScript()->registerCssFile('assets/css/bootstrap.css') ?>
+    <?php Yii::app()->getClientScript()->registerCssFile('assets/css/modern-business.css') ?>
+    <?php Yii::app()->getClientScript()->registerCssFile('assets//font-awesome/css/font-awesome.min.css') ?>
   </head>
 
   <body>
@@ -72,8 +70,8 @@
 
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/modern-business.js"></script>
+    <?php Yii::app()->clientScript->registerScriptFile('/assets/js/jquery.js'); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/assets/js/bootstrap.js'); ?>
+    <?php Yii::app()->clientScript->registerScriptFile('/assets/js/modern-business.js'); ?>
   </body>
 </html>

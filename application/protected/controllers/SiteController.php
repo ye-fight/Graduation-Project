@@ -48,7 +48,6 @@ class SiteController extends Controller
 
 	public function actionSelfTest()
 	{
-		$this->layout = '//layouts/sb_admin';
 		$this->render('test');
 	}
 

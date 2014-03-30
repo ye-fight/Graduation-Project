@@ -12,7 +12,7 @@
           }
         }
     </style>
-    <?php Yii::app()->getClientScript()->registerCssFile('/css/admin/sb-admin.css') ?>
+    <?php Yii::app()->getClientScript()->registerCssFile('assets/css/admin/sb-admin.css') ?>
 </head>
 
 <body>
@@ -56,14 +56,17 @@
           <div class="well well-small sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">文章发布管理</li>
-              <li class="active"><?php echo CHtml::link('管理文章', array('article/admin')) ?></li>
+              <li><?php echo CHtml::link('新建文章', array('article/create')) ?></li>
+              <li><?php echo CHtml::link('管理文章', array('article/admin')) ?></li>
               <li><?php echo CHtml::link('栏目管理', array('category/admin')) ?></li>
               <li><?php echo CHtml::link('评论管理', array('comment/admin')) ?></li>
               <li class="nav-header">医生答疑</li>
               <li><?php echo CHtml::link('问题管理', array('question/admin')) ?></li>
+              <li class="nav-header">测试题管理</li>
+              <li><?php echo CHtml::link('题目管理', array('quiz/admin')) ?></li>
+              <li><?php echo CHtml::link('新建题目', array('quiz/create')) ?></li>
               <li class="nav-header">管理员设置</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><?php echo CHtml::link('管理用户', array('user/admin')) ?></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

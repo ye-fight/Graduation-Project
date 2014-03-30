@@ -5,17 +5,11 @@
  */
 class AdminController extends CController
 {
-	public $layout = '//layouts/admin_main';
+	public $layout = '//layouts/sb_admin';
 
     public function actionIndex()
     {
         $this->render('index');
-    }
-
-    public function actionTest()
-    {
-    	$this->layout = '//layouts/sb_admin';
-    	$this->render('test');
     }
 
 	public function filters()
