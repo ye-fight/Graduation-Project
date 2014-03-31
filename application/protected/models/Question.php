@@ -69,7 +69,7 @@ class Question extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'questionid' => 'Questionid',
+			'questionid' => 'ID',
 			'title' => '问题主题',
 			'content' => '问题详情',
 			'createtime' => '提问日期',
@@ -78,7 +78,7 @@ class Question extends CActiveRecord
 			'status' => '状态',
 			'questioner_name' => '咨询人姓名',
 			'questioner_email' => '咨询人邮箱',
-			'user_userid' => 'User Userid',
+			'user_userid' => '回复人',
 		);
 	}
 

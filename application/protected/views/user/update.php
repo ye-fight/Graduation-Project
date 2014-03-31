@@ -1,18 +1,11 @@
 <?php
-$this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$model->userid=>array('view','id'=>$model->userid),
-	'Update',
-);
+$this->pageTitle = '编辑管理员';
 
-	$this->menu=array(
-	array('label'=>'用户列表','url'=>array('index')),
-	array('label'=>'新建用户','url'=>array('create')),
-	array('label'=>'查看用户','url'=>array('view','id'=>$model->userid)),
-	array('label'=>'管理用户','url'=>array('admin')),
+$this->menu=array(
+	array('label'=>'新建','url'=>array('create')),
+	array('label'=>'查看','url'=>array('view','id'=>$model->userid)),
+	array('label'=>'管理员管理','url'=>array('admin')),
 	);
-	?>
-
-	<h1>编辑用户 <?php echo $model->userid; ?></h1>
+?>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

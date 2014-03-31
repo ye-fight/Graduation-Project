@@ -1,18 +1,13 @@
 <?php
-$this->breadcrumbs=array(
-	'Articles'=>array('index'),
-	$model->title=>array('view','id'=>$model->id),
-	'Update',
-);
+$this->pageTitle = '编辑文章';
 
-	$this->menu=array(
-	array('label'=>'文章列表','url'=>array('index')),
+
+$this->menu=array(
 	array('label'=>'新建文章','url'=>array('create')),
-	array('label'=>'View Article','url'=>array('view','id'=>$model->id)),
 	array('label'=>'文章管理','url'=>array('admin')),
-	);
-	?>
-
-	<h1>编辑文章 <?php echo $model->id; ?></h1>
+	array('label'=>'查看文章','url'=>array('view','id'=>$model->id), 'linkOptions'=>array('target'=>'_blank')),
+	array('label'=>'删除文章','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'你确定要删除吗？')),
+);
+?>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

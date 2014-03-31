@@ -40,7 +40,7 @@ class Article extends CActiveRecord
 			array('description, content', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, keywords, description, createtime, updatetime, status, content, user_userid, category_catid', 'safe', 'on'=>'search'),
+			array('id, title, createtime, updatetime, status, user_userid, category_catid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,7 +64,7 @@ class Article extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => '文章ID',
+			'id' => 'ID',
 			'title' => '标题',
 			'keywords' => '关键字',
 			'description' => '描述',
@@ -72,7 +72,7 @@ class Article extends CActiveRecord
 			'updatetime' => '更新时间',
 			'status' => '是否显示',
 			'content' => '内容',
-			'user_userid' => '用户',
+			'user_userid' => '录入人',
 			'category_catid' => '栏目',
 			'thumb' => '图片'
 		);
@@ -106,6 +106,11 @@ class Article extends CActiveRecord
 		$criteria->compare('content',$this->content,true);
 		$criteria->compare('user_userid',$this->user_userid);
 		$criteria->compare('category_catid',$this->category_catid);
+
+		$criteria->with = array(
+			'author' => array('select' => 'username'),
+			'category' => array('select' => 'catname'),
+		);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

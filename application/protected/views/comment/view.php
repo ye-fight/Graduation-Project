@@ -1,15 +1,10 @@
 <?php
-$this->breadcrumbs=array(
-	'Comments'=>array('index'),
-	$model->commentid,
-);
+$this->pageTitle = '查看评论';
 
 $this->menu=array(
-array('label'=>'List Comment','url'=>array('index')),
-array('label'=>'Create Comment','url'=>array('create')),
-array('label'=>'Update Comment','url'=>array('update','id'=>$model->commentid)),
-array('label'=>'Delete Comment','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->commentid),'confirm'=>'Are you sure you want to delete this item?')),
-array('label'=>'Manage Comment','url'=>array('admin')),
+	array('label'=>'评论管理','url'=>array('admin')),
+	array('label'=>'编辑评论','url'=>array('update','id'=>$model->commentid)),
+	array('label'=>'删除评论','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->commentid),'confirm'=>'你确定要删除吗？')),
 );
 ?>
 

@@ -85,22 +85,22 @@ $this->pageTitle=Yii::app()->name;
             <hr>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="/images/700x450.gif"></a>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="/images/700x450.gif"></a>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="/images/700x450.gif"></a>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="/images/700x450.gif"></a>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="/images/700x450.gif"></a>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="http://placehold.it/700x450"></a>
+            <a href="portfolio-item.html"><img class="img-responsive img-home-portfolio" src="/images/700x450.gif"></a>
           </div>
         </div><!-- /.row -->
 
@@ -128,7 +128,7 @@ $this->pageTitle=Yii::app()->name;
             </ul>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <img class="img-responsive" src="http://placehold.it/700x450/ffffff/cccccc">
+            <img class="img-responsive" src="/images/700x450w.gif">
           </div>
         </div><!-- /.row -->
 
@@ -142,7 +142,7 @@ $this->pageTitle=Yii::app()->name;
 
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <img class="img-responsive" src="http://placehold.it/700x450">
+            <img class="img-responsive" src="/images/700x450.gif">
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
             <h2>Modern Business Features Include:</h2>

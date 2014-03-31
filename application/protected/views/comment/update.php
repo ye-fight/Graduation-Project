@@ -1,18 +1,10 @@
 <?php
-$this->breadcrumbs=array(
-	'Comments'=>array('index'),
-	$model->commentid=>array('view','id'=>$model->commentid),
-	'Update',
+$this->pageTitle = '编辑评论';
+
+$this->menu=array(
+	array('label'=>'评论管理','url'=>array('admin')),
+	array('label'=>'删除评论','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->commentid),'confirm'=>'你确定要删除吗？')),
 );
-
-	$this->menu=array(
-	array('label'=>'List Comment','url'=>array('index')),
-	array('label'=>'Create Comment','url'=>array('create')),
-	array('label'=>'View Comment','url'=>array('view','id'=>$model->commentid)),
-	array('label'=>'Manage Comment','url'=>array('admin')),
-	);
-	?>
-
-	<h1>Update Comment <?php echo $model->commentid; ?></h1>
+?>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

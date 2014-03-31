@@ -6,7 +6,7 @@ class CategoryController extends Controller
 * @var string the default layout for the views. Defaults to '//layouts/sb_admin', meaning
 * using two-column layout. See 'protected/views/layouts/sb_admin.php'.
 */
-	public $layout='//layouts/sb_admin';
+	public $layout='//layouts/column1';
 
 	/**
 	* @return array action filters

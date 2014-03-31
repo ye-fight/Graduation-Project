@@ -1,19 +1,13 @@
 <?php
-$this->breadcrumbs=array(
-	'Questions'=>array('index'),
-	$model->title=>array('view','id'=>$model->questionid),
-	'Update',
-);
+	$this->pageTitle = '编辑问题';
 
 	$this->menu=array(
-	array('label'=>'List Question','url'=>array('index')),
-	array('label'=>'Create Question','url'=>array('create')),
-	array('label'=>'View Question','url'=>array('view','id'=>$model->questionid)),
-	array('label'=>'Manage Question','url'=>array('admin')),
+		array('label'=>'新建答疑','url'=>array('create'), 'linkOptions'=>array('target'=>'_blank')),
+		array('label'=>'查看答疑','url'=>array('view','id'=>$model->questionid),  'linkOptions'=>array('target'=>'_blank')),
+		array('label'=>'删除答疑','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->questionid),'confirm'=>'你确定要删除吗？')),
+		array('label'=>'答疑管理','url'=>array('admin')),
 	);
 	?>
-
-	<h1>答疑详情</h1>
 
 	<div class="question-box">
 		<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
@@ -33,24 +27,10 @@ $this->breadcrumbs=array(
 		<?php } ?>
 
 		<h5 class="text-info">医生答疑</h5>
-		<?php $this->widget('application.extensions.tinymce.ETinyMce', array(
+		<?php $this->widget('ext.wdueditor.WDueditor', array(
 			'model' => $model,
 			'attribute' => 'answer',
-			'editorTemplate' => 'full',
-			'htmlOptions' =>array('rows'=>6, 'cols'=>50, 'class'=>'span8'),
-			'options' => array(
-				'theme_advanced_buttons1' =>
-				'undo,redo,|,bold,italic,underline,|,justifyleft,justifycenter,justifyright,justifyfull,|,outdent, indent,|,advhr,|,sub,sup,|,bullist,numlist,|,formatselect,fontselect,fontsizeselect,|,cut,copy,paste,pastetext,pasteword,|,search,replace,',
-				'theme_advanced_buttons2' => 'tablecontrols,|,removeformat,visualaid,',
-				'theme_advanced_buttons3' => '',
-				'theme_advanced_buttons4' => '',
-				'theme_advanced_toolbar_location' => 'top',
-				'theme_advanced_toolbar_align' => 'left',
-				'theme_advanced_statusbar_location' => 'none',
-				'theme_advanced_font_sizes' => "10=10pt,11=11pt,12=12pt,13=13pt,14=14pt,
-				15=15pt,16=16pt,17=17pt,18=18pt,19=19pt,20=20pt",
-			)
-		)); ?>
+		)) ?>			
 		<?php echo $form->error($model,'answer'); ?>
 
 		<div class="form-actions">

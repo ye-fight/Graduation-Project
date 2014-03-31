@@ -18,7 +18,7 @@
       <div class="row">
 
         <div class="col-md-6">
-          <img class="img-responsive" src="http://placehold.it/750x450">
+          <img class="img-responsive" src="/images/700x450.gif">
         </div>
         <div class="col-md-6">
           <?php echo $data->description ?>
