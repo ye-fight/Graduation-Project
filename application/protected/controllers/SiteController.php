@@ -36,8 +36,6 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
 
@@ -48,6 +46,8 @@ class SiteController extends Controller
 
 	public function actionSelfTest()
 	{
+		$data = Quiz::getRand();
+		var_dump($data);
 		$this->render('test');
 	}
 

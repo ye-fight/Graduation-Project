@@ -5,7 +5,9 @@
 	<div class="row">
 
 		<div class="col-lg-12">
-		  	<h1 class="page-header">医生答疑</h1>
+		  	<h1 class="page-header">医生答疑 
+          <small class="pull-right"><a class="btn btn-primary" href="<?php echo $this->createUrl('question/create') ?>">我要咨询</a></small>
+        </h1>
 		  	<ol class="breadcrumb">
 			    <li><?php echo CHtml::link('首页', '/') ?></li>
 			    <li class="active">医生答疑</li>

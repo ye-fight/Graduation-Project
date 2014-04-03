@@ -120,4 +120,12 @@ class Quiz extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getRand($nums = 10)
+	{
+		return self::model()->findAll(array(
+			'limit' => $nums,
+			'order' => 'rand()'
+		));
+	}
 }
