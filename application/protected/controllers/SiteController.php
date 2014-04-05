@@ -46,9 +46,15 @@ class SiteController extends Controller
 
 	public function actionSelfTest()
 	{
-		$data = Quiz::getRand();
-		var_dump($data);
-		$this->render('test');
+		if (isset($_POST) && !empty($_POST)) {
+			$data = unserialize(base64_decode($_POST['data']));
+		} else {
+			$data = Quiz::getRand(3);
+		}
+		
+		$this->render('test', array(
+			'data' => $data
+		));
 	}
 
 	/**

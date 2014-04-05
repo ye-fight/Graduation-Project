@@ -134,3 +134,25 @@ footer {
 .question-box p {
   text-indent: 2em;
 }
+
+#exam_paper { padding-top: 10px;}
+#exam_paper .qu_content{ border:#cecece 1px solid; padding:14px; margin-bottom:10px;}
+#exam_paper .qu_content_hover{ border:#e7ba6f 1px solid; padding:14px; margin-bottom:10px;}
+#exam_paper .qu_content .cz{ display:none;}
+#exam_paper .qu_content_hover .cz{ display:inline;}
+#exam_paper .qu_content_mark{ background:#fffef3; border:#9ad5db 1px solid; padding:14px; margin-bottom:10px;}
+#exam_paper .qu_content_mark_hover{ background:#fffef3; border:#e7ba6f 1px solid; padding:14px; margin-bottom:10px;}
+#exam_paper .qu_content_mark .cz{ display:none;}
+#exam_paper h3{ font-size:14px; color:#814c19; font-weight:normal; margin-bottom:8px;}
+#exam_paper h3 p{ display: inline-block;}
+#exam_paper p{ line-height:22px;}
+#exam_paper .qu_content table,#exam_paper .qu_content_hover table{ border-color:#ccc; margin:0 auto;}
+#exam_paper .qu_content table td,#exam_paper .qu_content_hover table td{ padding:0 10px;}
+
+#exam_paper .qu_option{ border:#cecece 1px dashed; background:#f4f4f4; padding:6px 10px; margin-top:20px; *min-height:25px; _height:25px;}
+
+#exam_paper .option_single label {
+  margin-bottom: 0;
+}
+
+#exam_paper .qu_option_hover{ border:#e7ba6f 1px dashed; background:#f4f4f4; padding:6px 10px; margin-top:20px; *min-height:25px; _height:25px;}
