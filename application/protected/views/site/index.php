@@ -42,16 +42,16 @@ $this->pageTitle=Yii::app()->name;
 
         <div class="row">
           <div class="col-lg-4 col-md-4">
-            <h3><i class="glyphicon glyphicon-list"></i> 化验评估</h3>
-            <p>The 'Modern Business' website template by <a href="http://startbootstrap.com">Start Bootstrap</a> is built with <a href="http://getbootstrap.com">Bootstrap 3</a>. Make sure you're up to date with latest Bootstrap documentation!</p>
+            <h3><i class="glyphicon glyphicon-list"></i> <a href="<?php echo $this->createUrl('site/analyse') ?>">化验评估</a></h3>
+            <p>填写化验单的数据，评估当前的身体健康状况</p>
           </div>
           <div class="col-lg-4 col-md-4">
-            <h3><i class="glyphicon glyphicon-question-sign"></i> 在线测试</h3>
-            <p>Your ready to go with this pre-built page structure, now all you need to do is add your own custom stylings! You can see some free themes over at <a href="http://bootswatch.com">Bootswatch</a>, or come up with your own using <a href="http://getbootstrap.com/customize/">the Bootstrap customizer</a>!</p>
+            <h3><i class="glyphicon glyphicon-question-sign"></i> <a href="<?php echo $this->createUrl('site/selfTest') ?>">在线测试</a></h3>
+            <p>快来检验血糖知识的掌握程度吧！</p>
           </div>
           <div class="col-lg-4 col-md-4">
-            <h3><i class="glyphicon glyphicon-user"></i> 医生咨询</h3>
-            <p>This template features many common pages that you might see on a business website. Pages include: about, contact, portfolio variations, blog, pricing, FAQ, 404, services, and general multi-purpose pages.</p>
+            <h3><i class="glyphicon glyphicon-user"></i> <a href="<?php echo $this->createUrl('question/index') ?>">医生咨询</a></h3>
+            <p>在线咨询医生，进一步得到你想知道的！！</p>
           </div>
         </div><!-- /.row -->
 

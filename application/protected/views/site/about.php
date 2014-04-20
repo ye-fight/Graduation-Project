@@ -18,7 +18,7 @@
       <div class="row">
 
         <div class="col-md-6">
-          <img class="img-responsive" src="/images/700x450.gif">
+          <img class="img-responsive" src="images/slider-1.jpg">
         </div>
         <div class="col-md-6">
           <?php echo $data->description ?>
